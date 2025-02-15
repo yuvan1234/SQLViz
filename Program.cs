@@ -32,4 +32,8 @@ app.UseCors("AllowAll");  // Enable CORS
 app.UseAuthorization();
 app.MapControllers();
 
+
+// Add health check endpoint
+app.MapGet("/", () => "SQLViz API is running!");
+
 app.Run();
