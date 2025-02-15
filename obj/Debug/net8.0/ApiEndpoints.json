@@ -1,0 +1,18 @@
+[
+  {
+    "ContainingType": "SQLViz.Controllers.SqlVisualizerController",
+    "Method": "VisualizeQuery",
+    "RelativePath": "api/visualize",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SQLViz.Models.QueryModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

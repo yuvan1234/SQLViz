@@ -1,0 +1,6 @@
+@SQLViz_HostAddress = http://localhost:5229
+
+GET {{SQLViz_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
