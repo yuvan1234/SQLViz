@@ -6,15 +6,16 @@ EXPOSE 8081
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-# Just copy the project file from current directory
-COPY ["*.csproj", "./"]
-RUN dotnet restore "*.csproj"
+# Correct project file name
+COPY ["SQLViz.csproj", "."]
+RUN dotnet restore "SQLViz.csproj"
 COPY . .
-RUN dotnet build "*.csproj" -c $BUILD_CONFIGURATION -o /app/build
+WORKDIR "/src"
+RUN dotnet build "SQLViz.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "*.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "SQLViz.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app
